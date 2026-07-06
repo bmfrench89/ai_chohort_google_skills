@@ -1,0 +1,41 @@
+# CI/CD pipeline: build the image, push it to Artifact Registry, then deploy to GKE.
+# Cloud Build sets $PROJECT_ID and $SHORT_SHA automatically; the rest come from
+# `substitutions` below (override with --substitutions or in the trigger config).
+
+steps:
+  # 1. Build the container image, tagged with the commit short SHA.
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${SHORT_SHA}'
+      - '.'
+
+  # 2. Push it to Artifact Registry.
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${SHORT_SHA}'
+
+  # 3. Deploy to GKE — gke-deploy applies kubernetes/ and swaps in the new image.
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+      - 'run'
+      - '--filename=kubernetes/'
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${SHORT_SHA}'
+      - '--location=${_ZONE}'
+      - '--cluster=${_CLUSTER}'
+
+substitutions:
+  _REGION: us-central1
+  _ZONE: us-central1-c
+  _REPOSITORY: my-repository
+  _IMAGE: hello-app
+  _CLUSTER: hello-cluster
+
+# Images to record in the build results / Artifact Registry.
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${SHORT_SHA}'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

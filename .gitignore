@@ -1,0 +1,23 @@
+# Credentials — never commit these
+*.json.key
+*-key.json
+service-account*.json
+gcp-credentials*.json
+.env
+.env.*
+*.pem
+
+# Go build output
+sample-app/server
+sample-app/app
+*.exe
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local kube config copies
+kubeconfig
+*.kubeconfig

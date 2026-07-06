@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-app
+  labels:
+    app: hello-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-app        # matches every Pod with this label (incl. a canary Deployment)
+  ports:
+    - name: http
+      port: 80            # external port on the load balancer
+      targetPort: 8080    # container port
+      protocol: TCP

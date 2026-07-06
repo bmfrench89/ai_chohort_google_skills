@@ -1,0 +1,7 @@
+.git
+.gitignore
+README.md
+kubernetes/
+cloudbuild.yaml
+server
+*.exe
