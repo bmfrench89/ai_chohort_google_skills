@@ -1,53 +1,117 @@
-# Challenge Lab — Implement DevOps Workflows in Google Cloud (GSP330)
+# Challenge Lab — GSP330 (working playbook)
 
-The badge assessment. No step-by-step hand-holding — you're given goals and must apply
-the three skills end to end. This is a **task checklist** to work through; drop your final
-artifacts (the actual `cloudbuild.yaml`, `Dockerfile`, and manifests you commit) into this
-folder as you go.
+The badge assessment. Full instructions are in
+[`GSP330-full-instructions.md`](GSP330-full-instructions.md). This file is our **working
+playbook**: the values to capture, the exact edits to make, gotchas, and how we work it
+together.
 
-> [!WARNING]
-> The live challenge lab specifies exact names (Artifact Registry repo, cluster,
-> region/zone, image, trigger). **Use the names the lab gives you**, not the placeholders
-> here — the auto-grader checks for its specific names.
+> [!IMPORTANT]
+> This lab uses **GitHub Repositories** (`gh` CLI + Cloud Build GitHub App), **not** Cloud
+> Source Repositories. The sample code is **provided** via `gs://spls/gsp330/sample-app/*`
+> — you don't write the app, you edit placeholders in it.
 
-## Typical task flow
+## How we work it together
 
-- [ ] **Task 1 — Create the lab resources**
-  - Enable APIs: `container`, `cloudbuild`, `artifactregistry`, `sourcerepo`.
-  - Create an Artifact Registry Docker repo (lab names it, often `my-repository`) in the
-    given region.
-- [ ] **Task 2 — Create the Cloud Source Repository**
-  - Create a repo (often `sample-app`) and copy the provided sample code into it.
-  - Commit and push to `master`.
-- [ ] **Task 3 — Build & test the first image**
-  - Build with Cloud Build, tag `:v1.0`, push to Artifact Registry.
-  - Create the GKE cluster (lab names it, e.g. `hello-cluster`).
-  - Create `prod` and `dev` namespaces if the lab asks.
-  - Deploy and confirm it responds.
-- [ ] **Task 4 — Create the Cloud Build trigger**
-  - Trigger on push to `master` of the source repo, using `cloudbuild.yaml`.
-  - Grant Cloud Build the `roles/container.developer` IAM role.
-- [ ] **Task 5 — Deploy a change through the pipeline**
-  - Edit the app (bump the version string), commit, push.
-  - Confirm the trigger fires, a new image builds with `$SHORT_SHA`, and GKE rolls out
-    the new version.
+1. Launch the lab, open **Cloud Shell**, and keep this chat open beside it.
+2. **Paste me the assigned values** (see table below) — I can't see your lab.
+3. I hand you exact commands with your values filled in; you run them in Cloud Shell.
+4. Paste output/errors back; I troubleshoot and give the next step.
+5. Hit **Check my progress** after each task to confirm the grader is happy.
 
-## Reference artifacts
+## Values to capture first (paste these to me)
 
-The working templates in [`../03-cicd-cloud-build/sample-app/`](../03-cicd-cloud-build/sample-app/)
-match this flow (Go app + Dockerfile + `cloudbuild.yaml` + `kubernetes/`). Copy them here
-and adjust names once you know the lab's required values.
+| Placeholder | Where to find it | Yours |
+|-------------|------------------|-------|
+| `PROJECT_ID` | Lab panel / `gcloud config get-value project` | |
+| `REGION` | Lab panel | |
+| `ZONE` | Lab panel | |
+| GitHub username | from the `gh auth login` step | |
 
-## Common grader gotchas
+Fixed names the grader expects (don't change these): `my-repository`, `hello-cluster`,
+namespaces `prod`/`dev`, repo `sample-app`, triggers `sample-app-prod-deploy` /
+`sample-app-dev-deploy`, services `prod-deployment-service` / `dev-deployment-service`.
 
-- Image path must be **exactly** `REGION-docker.pkg.dev/PROJECT_ID/REPO/IMAGE:TAG`.
-- The trigger must watch the **right branch** (`^master$`) and point at `cloudbuild.yaml`.
-- Cloud Build's service account needs `roles/container.developer` or the deploy step fails.
-- Wait for the GKE Service `EXTERNAL-IP` to be assigned before curling it.
+## Task checklist
 
-## Final artifacts (commit here)
+- [ ] **Task 1 — Lab resources**: enable APIs · grant Cloud Build `container.developer` ·
+      `gh auth login` · Artifact Registry `my-repository` · GKE `hello-cluster` (autoscale
+      3/2/6, Regular, v1.29+) · namespaces `prod` + `dev`
+- [ ] **Task 2 — GitHub repo**: create empty `sample-app` · clone · `gsutil cp` sample
+      code · `sed` region/zone into the cloudbuild files · commit+push `master` · create
+      `dev` branch, commit+push
+- [ ] **Task 3 — Triggers**: `sample-app-prod-deploy` (`^master$`, `cloudbuild.yaml`) ·
+      `sample-app-dev-deploy` (`^dev$`, `cloudbuild-dev.yaml`) via GitHub App
+- [ ] **Task 4 — v1.0 deploys**: edit versions + image names (see below) · push dev then
+      master · expose both LoadBalancer services · verify `/blue`
+- [ ] **Task 5 — v2.0 deploys**: add `redHandler` + update `main()` · bump to v2.0 · push
+      dev then master · verify `/red`
+- [ ] **Task 6 — Rollback**: rebuild the prod `v1.0` build from Cloud Build History ·
+      `/red` should return **404**
 
-<!-- drop your real cloudbuild.yaml, Dockerfile, manifests, and a short writeup -->
-- Lab-assigned names used:
-- Screenshot / build ID of the successful auto-deploy:
+## Exact edits the lab requires
+
+The provided sample app ships with placeholders. Confirm line numbers when we inspect the
+real files (they should match), then make these edits:
+
+| File | Edit |
+|------|------|
+| `cloudbuild-dev.yaml` | `<version>` on **lines 9 & 13** → `v1.0` (then `v2.0` in Task 5) |
+| `cloudbuild.yaml` | `<version>` on **lines 11 & 16** → `v1.0` (then `v2.0` in Task 5) |
+| `dev/deployment.yaml` | `<todo>` on **line 17** → container image name; replace `PROJECT_ID` |
+| `prod/deployment.yaml` | `<todo>` on **line 17** → container image name; replace `PROJECT_ID` |
+| `main.go` (Task 5) | update `main()` to register `/red`; add `redHandler` func |
+
+**Container image name** (must match between each cloudbuild file and its deployment.yaml).
+Artifact Registry format:
+
+```
+REGION-docker.pkg.dev/PROJECT_ID/my-repository/IMAGE_NAME:TAG
+```
+
+We'll read the exact `IMAGE_NAME` and `:TAG` out of the provided `cloudbuild.yaml` /
+`cloudbuild-dev.yaml` when we inspect them, so the deployment image matches exactly.
+
+### Task 5 Go edits (ready to paste)
+
+Update `main()`:
+
+```go
+func main() {
+	http.HandleFunc("/blue", blueHandler)
+	http.HandleFunc("/red", redHandler)
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+Add `redHandler`:
+
+```go
+func redHandler(w http.ResponseWriter, r *http.Request) {
+	img := image.NewRGBA(image.Rect(0, 0, 100, 100))
+	draw.Draw(img, img.Bounds(), &image.Uniform{color.RGBA{255, 0, 0, 255}}, image.ZP, draw.Src)
+	w.Header().Set("Content-Type", "image/png")
+	png.Encode(w, img)
+}
+```
+
+## Grader gotchas
+
+- Image path must be **exactly** `REGION-docker.pkg.dev/PROJECT_ID/my-repository/IMAGE:TAG`
+  and **identical** in the cloudbuild file and its deployment.yaml.
+- Triggers must watch the right branch regex (`^master$` / `^dev$`) and the right config
+  file (`cloudbuild.yaml` / `cloudbuild-dev.yaml`).
+- Cloud Build SA needs `roles/container.developer` or the deploy step fails.
+- Right namespace: prod deploy → `prod` ns, dev deploy → `dev` ns.
+- Services are `LoadBalancer`, **port 8080**, target port = the Dockerfile's `EXPOSE`.
+- Wait for the Service `EXTERNAL-IP` before curling; v2.0 rollout can take a couple mins.
+- Task 6: rollback = **rebuild the old v1.0 prod build** from Cloud Build History; success
+  check is `/red` → **404**.
+
+## Final artifacts (commit here as we go)
+
+<!-- copy the edited cloudbuild files, deployment.yaml files, main.go, and a short writeup -->
+- Assigned PROJECT_ID / REGION / ZONE:
+- Image name used:
+- Build IDs (v1.0 dev, v1.0 prod, v2.0 dev, v2.0 prod, rollback):
+- Service external IPs:
 - Badge URL:
