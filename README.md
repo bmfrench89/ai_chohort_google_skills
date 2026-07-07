@@ -20,7 +20,7 @@ Google Skills course template ID from its URL
 | Template | Course | Status | Folder |
 |----------|--------|--------|--------|
 | [716](https://www.skills.google/course_templates/716) | Implement DevOps Workflows in Google Cloud | ✅ **Badge earned** (2026-07-06) | [`716-implement-devops-workflows/`](716-implement-devops-workflows/) |
-| [636](https://www.skills.google/course_templates/636) | Build Infrastructure with Terraform on Google Cloud | 🚧 In progress | [`636-build-infrastructure-terraform/`](636-build-infrastructure-terraform/) |
+| [636](https://www.skills.google/course_templates/636) | Build Infrastructure with Terraform on Google Cloud | ✅ **Badge earned** (2026-07-06) | [`636-build-infrastructure-terraform/`](636-build-infrastructure-terraform/) |
 
 ## Layout
 
@@ -42,5 +42,6 @@ Google Skills course template ID from its URL
 ## Badges earned
 
 - 🎖️ [Implement DevOps Workflows in Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987) — Jul 6, 2026
+- 🎖️ Build Infrastructure with Terraform on Google Cloud — Jul 6, 2026
 
 Public profile: https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784

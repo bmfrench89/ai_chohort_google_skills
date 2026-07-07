@@ -25,8 +25,8 @@ Plus challenge-lab skills: `terraform import` (bring existing infra under manage
 
 ## Progress tracker
 
-- [ ] Challenge Lab (GSP345) — build/import/modularize infrastructure with Terraform
-- [ ] 🎖️ Badge earned
+- [x] **Challenge Lab (GSP345)** — build/import/modularize infrastructure with Terraform ✅ *(2026-07-06, 100/100)*
+- [x] 🎖️ **Badge earned** — see [challenge-lab/COMPLETION.md](challenge-lab/COMPLETION.md)
 
 ## Layout
 
