@@ -23,11 +23,11 @@ Cloud Build configs, Kubernetes manifests, and the `gcloud` / `kubectl` commands
 
 ## Progress tracker
 
-- [ ] Lab 1 — Cloud Source Repositories: create & push to a repo
-- [ ] Lab 2 — Managing Deployments Using Kubernetes Engine (deploy, roll out, scale, canary)
-- [ ] Lab 3 — GKE Pipeline using Cloud Build (build → push → deploy)
-- [ ] Challenge Lab (GSP330) — end-to-end DevOps pipeline
-- [ ] 🎖️ Badge earned
+- [ ] Lab 1 — Cloud Source Repositories *(skipped — fast-tracked to the challenge)*
+- [ ] Lab 2 — Managing Deployments Using Kubernetes Engine *(skipped)*
+- [ ] Lab 3 — GKE Pipeline using Cloud Build *(skipped)*
+- [x] **Challenge Lab (GSP330)** — end-to-end DevOps pipeline ✅ *(2026-07-06)*
+- [x] 🎖️ **Badge earned** — see [challenge-lab/COMPLETION.md](challenge-lab/COMPLETION.md)
 
 ## Repo layout
 
