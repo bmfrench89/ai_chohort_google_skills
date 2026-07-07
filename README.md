@@ -1,47 +1,46 @@
-# Implement DevOps Workflows in Google Cloud
+# AI Cohort — Google Cloud Skill Badges
 
-Coursework repo for the **[Implement DevOps Workflows in Google Cloud](https://www.skills.google/course_templates/716)**
-skill badge (Google Cloud Skills Boost), completed as part of an AI cohort.
+Coursework repo tracking Google Cloud skill badges completed for an AI cohort. Each course
+lives in its own top-level directory holding its labs, notes, challenge-lab artifacts, and a
+completion record.
 
-The labs themselves run in the Google Cloud console (temporary Qwiklabs projects).
-This repo tracks the **artifacts and notes** produced along the way: Dockerfiles,
-Cloud Build configs, Kubernetes manifests, and the `gcloud` / `kubectl` commands used.
+> The labs run in the Google Cloud console (temporary Qwiklabs projects). This repo tracks
+> the **artifacts and notes** — Terraform/YAML configs, Dockerfiles, pipeline definitions,
+> and `gcloud`/`terraform` commands — produced along the way.
 
-> [!IMPORTANT]
-> Everything here is a **reference template**. The live lab hands you specific project
-> IDs, regions, zones, and image names. Reconcile those values against the on-screen
-> lab instructions before running anything.
+## Folder naming convention
 
-## What the badge validates
+Top-level course folders are named **`<template#>-<slug>`**, where `<template#>` is the
+Google Skills course template ID from its URL
+(`https://www.skills.google/course_templates/<template#>`). Example:
+`716-implement-devops-workflows/` ↔ `course_templates/716`.
 
-| Skill | Google Cloud service | Folder |
-|-------|----------------------|--------|
-| Source control | Cloud Source Repositories | [`01-cloud-source-repos/`](01-cloud-source-repos/) |
-| Container orchestration | Google Kubernetes Engine (GKE) | [`02-gke-orchestration/`](02-gke-orchestration/) |
-| CI/CD automation | Cloud Build + Artifact Registry | [`03-cicd-cloud-build/`](03-cicd-cloud-build/) |
-| **Assessment** | Challenge Lab (GSP330) | [`challenge-lab/`](challenge-lab/) |
+## Courses
 
-## Progress tracker
+| Template | Course | Status | Folder |
+|----------|--------|--------|--------|
+| [716](https://www.skills.google/course_templates/716) | Implement DevOps Workflows in Google Cloud | ✅ **Badge earned** (2026-07-06) | [`716-implement-devops-workflows/`](716-implement-devops-workflows/) |
+| [636](https://www.skills.google/course_templates/636) | Build Infrastructure with Terraform on Google Cloud | 🚧 In progress | [`636-build-infrastructure-terraform/`](636-build-infrastructure-terraform/) |
 
-- [ ] Lab 1 — Cloud Source Repositories *(skipped — fast-tracked to the challenge)*
-- [ ] Lab 2 — Managing Deployments Using Kubernetes Engine *(skipped)*
-- [ ] Lab 3 — GKE Pipeline using Cloud Build *(skipped)*
-- [x] **Challenge Lab (GSP330)** — end-to-end DevOps pipeline ✅ *(2026-07-06)*
-- [x] 🎖️ **[Badge earned](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987)** — details in [challenge-lab/COMPLETION.md](challenge-lab/COMPLETION.md)
-
-## Repo layout
+## Layout
 
 ```
 .
-├── 01-cloud-source-repos/     # git + Cloud Source Repositories notes & commands
-├── 02-gke-orchestration/      # k8s manifests + deploy/scale/rollout commands
-├── 03-cicd-cloud-build/       # sample Go app, Dockerfile, cloudbuild.yaml, manifests
-├── challenge-lab/             # GSP330 task checklist + your final artifacts
-└── notes/                    # gcloud/kubectl cheatsheet + gotchas
+├── 716-implement-devops-workflows/        # GSP330 — GKE + Cloud Build + GitHub CI/CD
+│   ├── 01-cloud-source-repos/
+│   ├── 02-gke-orchestration/
+│   ├── 03-cicd-cloud-build/
+│   ├── challenge-lab/                      # completed artifacts + COMPLETION.md
+│   └── notes/
+├── 636-build-infrastructure-terraform/    # GSP345 — Terraform IaC on Google Cloud
+│   ├── reference/                          # reference .tf templates (provider, module, backend)
+│   ├── challenge-lab/                      # filled in when the challenge lab is run
+│   └── notes/
+└── .gitignore
 ```
 
-## How I use this repo
+## Badges earned
 
-As I complete each lab I drop the real artifacts I create into the matching folder and
-tick the box above. When the badge is done, this gets ported to the company repo for
-tracking.
+- 🎖️ [Implement DevOps Workflows in Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987) — Jul 6, 2026
+
+Public profile: https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784

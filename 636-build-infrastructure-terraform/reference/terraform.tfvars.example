@@ -1,0 +1,7 @@
+# Copy to terraform.tfvars and fill in your values.
+# terraform.tfvars is gitignored (it often holds project-specific / sensitive values);
+# this .example file is the committed template.
+
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+zone       = "us-central1-a"

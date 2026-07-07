@@ -21,3 +21,17 @@ Thumbs.db
 # Local kube config copies
 kubeconfig
 *.kubeconfig
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+# tfvars may hold project-specific/sensitive values; commit *.tfvars.example instead
+*.tfvars
+!*.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
