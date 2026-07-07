@@ -2,7 +2,7 @@
 
 **Badge:** Build Infrastructure with Terraform on Google Cloud
 **Completed:** 2026-07-06 · **Result:** ✅ 100/100 — all 7 tasks passed → skill badge earned
-**Badge URL:** _(add when available)_
+**Badge URL:** https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25360401
 
 Final config in [`solution/`](solution/).
 

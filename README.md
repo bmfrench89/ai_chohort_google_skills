@@ -42,6 +42,6 @@ Google Skills course template ID from its URL
 ## Badges earned
 
 - 🎖️ [Implement DevOps Workflows in Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987) — Jul 6, 2026
-- 🎖️ Build Infrastructure with Terraform on Google Cloud — Jul 6, 2026
+- 🎖️ [Build Infrastructure with Terraform on Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25360401) — Jul 6, 2026
 
 Public profile: https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784
