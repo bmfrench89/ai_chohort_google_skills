@@ -27,7 +27,7 @@ Cloud Build configs, Kubernetes manifests, and the `gcloud` / `kubectl` commands
 - [ ] Lab 2 — Managing Deployments Using Kubernetes Engine *(skipped)*
 - [ ] Lab 3 — GKE Pipeline using Cloud Build *(skipped)*
 - [x] **Challenge Lab (GSP330)** — end-to-end DevOps pipeline ✅ *(2026-07-06)*
-- [x] 🎖️ **Badge earned** — see [challenge-lab/COMPLETION.md](challenge-lab/COMPLETION.md)
+- [x] 🎖️ **[Badge earned](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987)** — details in [challenge-lab/COMPLETION.md](challenge-lab/COMPLETION.md)
 
 ## Repo layout
 

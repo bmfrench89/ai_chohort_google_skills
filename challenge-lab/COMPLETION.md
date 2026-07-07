@@ -2,6 +2,7 @@
 
 **Badge:** Implement DevOps Workflows in Google Cloud
 **Completed:** 2026-07-06 · **Result:** ✅ all 6 tasks passed → skill badge earned
+**Badge URL:** https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987
 
 The completed lab artifacts are in [`sample-app/`](sample-app/) (final v2.0 committed state).
 

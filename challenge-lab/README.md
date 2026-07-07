@@ -114,4 +114,4 @@ func redHandler(w http.ResponseWriter, r *http.Request) {
 - Image name used:
 - Build IDs (v1.0 dev, v1.0 prod, v2.0 dev, v2.0 prod, rollback):
 - Service external IPs:
-- Badge URL:
+- Badge URL: https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987
