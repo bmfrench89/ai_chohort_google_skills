@@ -10,7 +10,7 @@
 
 | # | What's checked | Pts | Full credit when | Done |
 |---|----------------|-----|------------------|:----:|
-| 1 | **Course 1 — Service Monitoring** | 25 | Lab completed; all *Check my progress* passed (SLIs, SLOs, error budgets) | ☐ |
+| 1 | **Course 1 — Service Monitoring** | 25 | Lab completed; all *Check my progress* passed (SLIs, SLOs, error budgets) | ✅ |
 | 2 | **Course 1 — Alerting in Google Cloud** | 25 | Lab completed; alerting policies + notification channels configured | ☐ |
 | 3 | **Course 1 — Monitoring & Dashboarding** | 20 | Lab completed; golden-signal dashboard built + uptime checks configured | ☐ |
 | 4 | **Course 2 — Cloud Trace** | 30 | Lab completed; latency bottleneck located via distributed trace | ☐ |
@@ -21,7 +21,7 @@
 ## Course 1 — Logging and Monitoring in Google Cloud
 [`course_templates/99`](https://www.cloudskillsboost.google/course_templates/99) · supports **L9.1, L9.2, L9.4** — the core of M9. **Three guided labs, all required:**
 
-- [ ] **Service Monitoring** — L9.2 — define SLIs, SLOs, and error budgets *(most on-target lab in the module)* — **25 pts**
+- [x] **Service Monitoring** — L9.2 — define SLIs, SLOs, and error budgets *(most on-target lab in the module)* — **25 pts** ✅ *(2026-07-12)*
 - [ ] **Alerting in Google Cloud** — L9.2 · L9.4 — alerting policies + notification channels; alert on impact, not noise — **25 pts**
 - [ ] **Monitoring Critical Systems – Monitoring and Dashboarding Multiple Projects** — L9.1 · L9.4 — metrics data model, golden-signal dashboards, querying metrics, uptime checks — **20 pts**
 

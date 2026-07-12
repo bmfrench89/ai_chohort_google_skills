@@ -21,7 +21,7 @@ along the way. Updated live as we work through the labs.
 
 ## Course 1 — Logging and Monitoring (template 99)
 
-### Lab 1 — Service Monitoring  ·  status: 🔄 in progress
+### Lab 1 — Service Monitoring  ·  status: ✅ done (2026-07-12, both checkpoints green)
 > Reached via the 864 course URL, but it's the **Service Monitoring** lab = Course 1 Lab 1 (25 pts). 30-min timer. Deploy a Node.js app to App Engine → create a 99.5% availability SLO → tie a burn-rate alert → trigger it.
 
 - **Task 1 — deploy test app (App Engine · Node.js):**
@@ -40,11 +40,20 @@ along the way. Updated live as we work through the labs.
   # load generator (run in a 2nd Cloud Shell tab, leave running):
   while true; do curl -s https://$DEVSHELL_PROJECT_ID.appspot.com/random-error -w '\n'; sleep .1s; done
   ```
-  Console: Monitoring → SLOs → default App Engine service → **+Create SLO** (Availability · Request-based · Rolling 7 days · goal **99.5%**) → create SLO alert (lookback **10 min**, burn rate **1.5**, email notification channel). Trigger: edit `index.js` `/random-error` route (~line 126) `Math.random` **1000 → 20**, then `gcloud app deploy` again.
+  Console: Monitoring → SLOs → **+Define service → default** (it didn't auto-detect) → **+Create SLO** (Availability · Request-based · Rolling 7 days · goal **99.5%**) → **+Create SLO alert** (name "Really short window test", lookback **10 min**, burn rate **1.5**, Email notification channel via Manage Notification Channels → Add New).
+  Trigger (real command — lab text is outdated):
+  ```bash
+  # error rate is a per-request query-param DEFAULT on line 127:
+  #   error_rate = parseInt(req.query.error_rate) || 1000
+  sed -i 's/|| 1000/|| 20/' index.js   # default 1000 -> 20 (≈1 error / 20 reqs)
+  gcloud app deploy                    # type y ; SLI drops to ~95%, alert fires, email arrives
+  ```
 
 - **Issues & fixes:**
   - ⚠️✅ **Node.js runtime — the classmate-flagged issue, and it's the LAB TEXT that's outdated.** The lab tells you to set `runtime: nodejs20`, but the `HelloLoggingNodeJS` repo already ships **`runtime: nodejs22`** (maintainer bumped it because App Engine decommissions old runtimes). Following the lab's `nodejs20` can fail as it ages out. **Fix: leave/set `runtime: nodejs22`** (the current supported runtime); the Check-my-progress grader only cares that the app deploys + serves, not the version. Observed here: `cat app.yaml` → `nodejs22` out of the box.
   - ⚠️✅ **Region blocked by org policy:** `gcloud app create --region=us-central` → `FAILED_PRECONDITION: "us-central1" violates constraint "constraints/gcp.resourceLocations"`. The lab project's org policy disallows us-central1. **Fix: use `us-west1`** (worked here; `europe-west` is the other offered option). App Engine region is permanent per project, but that's fine for a temp lab.
+  - ℹ️ **Service Monitoring didn't auto-detect the App Engine service** on the SLOs page → click **+Define service → default → Submit** (lab notes this as the fallback).
+  - ℹ️ **Error-rate edit — lab text outdated:** the lab says change `Math.random`'s literal `1000` to `20`, but the repo stores it as a query-param default on line 127 (`error_rate = parseInt(req.query.error_rate) || 1000`). Actual edit: `sed -i 's/|| 1000/|| 20/' index.js`.
 - 📸 **Screenshots:** ✅ `01-service-monitoring-hello-world.png` (Task 1) · ☐ `01-service-monitoring-slo.png` (SLO + error budget) · ☐ `01-service-monitoring-alert.png` (SLI drop / alert firing)
 
 ### Lab 2 — Alerting in Google Cloud  ·  status: ☐

@@ -10,7 +10,7 @@ then screenshot the finished lab into [`screenshots/`](screenshots/).
 ### 1. Service Monitoring — 25 pts (L9.2)
 Define **SLIs, SLOs, and error budgets** with Service Monitoring. The most on-target lab in
 the module.
-- [ ] Completed · all checkpoints green · screenshot saved
+- [x] **Completed 2026-07-12** · both checkpoints green · screenshots in [`screenshots/`](screenshots/)
 
 ### 2. Alerting in Google Cloud — 25 pts (L9.2 · L9.4)
 Build **alerting policies** and **notification channels**; alert on *impact*, not noise.
