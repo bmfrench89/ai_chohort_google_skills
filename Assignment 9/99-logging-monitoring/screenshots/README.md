@@ -16,5 +16,6 @@ shot**. Save a shot with any name and tell me; I drop it in the right lab folder
 ### [`02-alerting-in-google-cloud/`](02-alerting-in-google-cloud/) — ✅ 100/100
 `hello-gcp-local` · `hello-gcp` · `appengine-dashboard` · `latency-metric` · `policy` · `appengine-traffic` · **`score-100`** (key)
 
-### [`03-monitoring-and-dashboarding-multiple-projects/`](03-monitoring-and-dashboarding-multiple-projects/) — ⏳ in progress
-Saved: `worker-1-nginx` · `worker-2-nginx`. Next: `frontend-servers-group` · `uptime-check` · `custom-dashboard` · `score`
+### [`03-monitoring-and-dashboarding-multiple-projects/`](03-monitoring-and-dashboarding-multiple-projects/) — 🟡 85/100
+`worker-1-nginx` · `worker-2-nginx` · `metrics-scope` · `uptime-check-create` · `uptime-check` · `dashboard-uptime-chart` · `custom-dashboard` · **`score-85`**
+*(Tasks 1–4 passed + dashboard built; Task 5 checkpoint was finicky — retryable for the last 15.)*

@@ -18,7 +18,7 @@ Build **alerting policies** and **notification channels**; alert on *impact*, no
 
 ### 3. Monitoring Critical Systems — Monitoring and Dashboarding Multiple Projects — 20 pts (L9.1 · L9.4)
 Metrics data model, **golden-signal dashboards**, querying metrics, and **uptime checks**.
-- [ ] Completed · dashboard + uptime check built · screenshot saved
+- [~] **2026-07-12 · lab 85/100** — 3 workers/metrics-scope + Frontend Servers group + uptime check + "Developer's Frontend" dashboard all built; Task 5 checkpoint retryable for the last 15. Shots in [`screenshots/03-monitoring-and-dashboarding-multiple-projects/`](screenshots/03-monitoring-and-dashboarding-multiple-projects/)
 
 ## Notes / gotchas
 

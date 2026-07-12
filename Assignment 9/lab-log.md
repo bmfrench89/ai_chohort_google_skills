@@ -89,7 +89,7 @@ along the way. Updated live as we work through the labs.
   - ⚠️✅ **`gcloud app deploy` crashed from the home dir:** run from `~`, gcloud tried to package the whole `training-data-analyst` repo and died on a broken file (`.../pubsub-exercises/exercise1/labs/actions.csv` FileNotFoundError). **Fix: `cd` into `deploying-apps-to-gcp` (the app folder) and create `app.yaml` there before deploying**; `rm -f ~/app.yaml` to clear the stray one. Deploy only ever from the small app folder.
 - 📸 **Screenshots (7, all saved):** hello-gcp-local · hello-gcp · appengine-dashboard · latency-metric · policy · appengine-traffic · **score-100** (key). See `99-logging-monitoring/screenshots/`. (No incident-firing shot needed — 100/100 confirms it.)
 
-### Lab 3 — Monitoring and Dashboarding Multiple Projects  ·  status: 🔄 in progress
+### Lab 3 — Monitoring and Dashboarding Multiple Projects  ·  status: 🟡 85/100 (2026-07-12; Tasks 1–4 ✅ + dashboard built; Task 5 checkpoint retryable)
 > 45-min lab. **THREE projects:** Monitoring (scoping) + Worker 1 + Worker 2. Mostly Cloud Console — switch projects via the top-left dropdown. Graded checkpoints: **Task 1** (2 worker VMs + NGINX), **Task 3** (monitoring groups), **Task 4** (uptime check), **Task 5** (custom dashboard). Task 2 (metrics scope) = required, no checkpoint.
 
 - **Task 1 — worker VMs + NGINX** (in each Worker project): `worker-1-server` / `worker-2-server` (e2-medium, Debian 12, **Allow HTTP**), SSH → `sudo apt-get update && sudo apt-get install -y nginx`. Record each External IP. (gcloud accelerator possible.)
@@ -97,8 +97,13 @@ along the way. Updated live as we work through the labs.
 - **Task 3 — groups:** label VMs `component=frontend`; worker-1 `stage=dev`, worker-2 `stage=test`. Monitoring → Groups → **Frontend Servers** (Tag `component`=`frontend` → 2 VMs) → subgroup **Frontend Dev** (component=frontend AND stage=dev).
 - **Task 4 — uptime check:** Uptime checks → Create: HTTP · Instance · Group **Frontend Servers** · path `/` · 1 min · Title **Frontend Servers Uptime** → Test (200) → Create. Record Check ID. Stop worker-1-server → watch it fail.
 - **Task 5 — custom dashboard:** Dashboards → **Developer's Frontend** → uptime line chart + CPU-utilization chart; load-gen from worker-2 via `apache2-utils` (`ab`).
-- **Issues & fixes:** _watch: region/zone org policy (pick an allowed one, e.g. us-west1); the 5-min group-membership quirk (uptime check stops flagging a stopped VM once the group drops it after ~5 min)._
-- 📸 **Screenshots:** → `screenshots/03-monitoring-and-dashboarding-multiple-projects/`
+- **Issues & fixes:**
+  - Group showed **0 instances** right after labeling → **label-propagation delay** (GCE labels take a few min to reach Monitoring). The dynamic group catches up; **Check-my-progress passed anyway** (it grades the group config, not the live count).
+  - ⚠️ **Uptime check got misnamed** — the Title field grabbed the wrong clipboard text (a pasted `gcloud` command) instead of `Frontend Servers Uptime`. The **Check ID must be `frontend-servers-uptime`** (derived from the name), so a wrong name = grader miss. **Fix: delete + recreate**, typing the title (don't paste).
+  - ⚠️ **Dashboard defaulted to "New Dashboard - \<timestamp\>"** → must **rename to `Developer's Frontend`** (click the title top-left).
+  - Task 5 "Create a custom dashboard" checkpoint was **finicky** ("please add a chart" even with 2 charts present) → refresh the dashboard + re-click; ended at **85/100** for now (retryable for the last 15).
+  - Reused gotchas: region/zone org policy (used **us-west1-a**); the **5-min group-membership quirk** (uptime check stops flagging a stopped VM once the group drops it).
+- 📸 **Screenshots (8):** worker-1/2-nginx · metrics-scope · uptime-check-create · uptime-check · dashboard-uptime-chart · custom-dashboard · **score-85**. See `screenshots/03-monitoring-and-dashboarding-multiple-projects/`.
 
 ---
 
