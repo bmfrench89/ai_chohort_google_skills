@@ -1,47 +1,45 @@
-# AI Cohort — Google Cloud Skill Badges
+# AI Cohort — Google Cloud Skills
 
-Coursework repo tracking Google Cloud skill badges completed for an AI cohort. Each course
-lives in its own top-level directory holding its labs, notes, challenge-lab artifacts, and a
-completion record.
+Coursework repo tracking Google Cloud Skills Boost work for an AI cohort, organized by
+**assignment** (module). Each assignment folder holds its courses/labs, notes, evidence, and
+completion records.
 
-> The labs run in the Google Cloud console (temporary Qwiklabs projects). This repo tracks
-> the **artifacts and notes** — Terraform/YAML configs, Dockerfiles, pipeline definitions,
-> and `gcloud`/`terraform` commands — produced along the way.
+> The labs run in the Google Cloud console (temporary Qwiklabs / Skills Boost projects). This
+> repo tracks the **artifacts, evidence, and notes** — Terraform/YAML configs, Dockerfiles,
+> pipeline definitions, screenshots, and commands — produced along the way.
 
-## Folder naming convention
+## Assignments
 
-Top-level course folders are named **`<template#>-<slug>`**, where `<template#>` is the
-Google Skills course template ID from its URL
-(`https://www.skills.google/course_templates/<template#>`). Example:
-`716-implement-devops-workflows/` ↔ `course_templates/716`.
+| Assignment | Focus | Status |
+|------------|-------|--------|
+| [`Assignment 8/`](Assignment%208/) | Build & deploy — DevOps CI/CD (GSP330) + Terraform IaC (GSP345) | ✅ 2 badges earned |
+| [`Assignment 9/`](Assignment%209/) | Observability — logging, monitoring, alerting, SLOs, Cloud Trace | 🚧 In progress |
 
-## Courses
+## Conventions
 
-| Template | Course | Status | Folder |
-|----------|--------|--------|--------|
-| [716](https://www.skills.google/course_templates/716) | Implement DevOps Workflows in Google Cloud | ✅ **Badge earned** (2026-07-06) | [`716-implement-devops-workflows/`](716-implement-devops-workflows/) |
-| [636](https://www.skills.google/course_templates/636) | Build Infrastructure with Terraform on Google Cloud | ✅ **Badge earned** (2026-07-06) | [`636-build-infrastructure-terraform/`](636-build-infrastructure-terraform/) |
+- **Assignment folders** are named `Assignment <n>` (matching the cohort's Canvas modules).
+- **Course folders** inside are named `<template#>-<slug>`, where `<template#>` is the Skills
+  Boost course-template ID from its URL (`.../course_templates/<template#>`).
+- Each course/challenge folder carries its instructions, a playbook, completed artifacts or
+  screenshot evidence, and a `COMPLETION.md` / rubric tracker.
 
 ## Layout
 
 ```
 .
-├── 716-implement-devops-workflows/        # GSP330 — GKE + Cloud Build + GitHub CI/CD
-│   ├── 01-cloud-source-repos/
-│   ├── 02-gke-orchestration/
-│   ├── 03-cicd-cloud-build/
-│   ├── challenge-lab/                      # completed artifacts + COMPLETION.md
-│   └── notes/
-├── 636-build-infrastructure-terraform/    # GSP345 — Terraform IaC on Google Cloud
-│   ├── reference/                          # reference .tf templates (provider, module, backend)
-│   ├── challenge-lab/                      # filled in when the challenge lab is run
-│   └── notes/
-└── .gitignore
+├── Assignment 8/
+│   ├── 716-implement-devops-workflows/     # GSP330 — GKE + Cloud Build + GitHub CI/CD
+│   └── 636-build-infrastructure-terraform/ # GSP345 — Terraform IaC
+└── Assignment 9/
+    ├── rubric.md                           # rubric + progress tracker
+    ├── submission.md                       # the URLs to submit in Canvas
+    ├── 99-logging-monitoring/              # Course 1 (Service Monitoring · Alerting · Dashboarding)
+    └── 864-observability/                  # Course 2 (Cloud Trace)
 ```
 
 ## Badges earned
 
-- 🎖️ [Implement DevOps Workflows in Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987) — Jul 6, 2026
-- 🎖️ [Build Infrastructure with Terraform on Google Cloud](https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25360401) — Jul 6, 2026
+- 🎖️ [Implement DevOps Workflows in Google Cloud](https://www.cloudskillsboost.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25359987) — Jul 6, 2026
+- 🎖️ [Build Infrastructure with Terraform on Google Cloud](https://www.cloudskillsboost.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784/badges/25360401) — Jul 6, 2026
 
-Public profile: https://www.skills.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784
+Public profile: https://www.cloudskillsboost.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784
