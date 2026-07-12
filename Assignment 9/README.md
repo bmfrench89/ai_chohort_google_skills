@@ -19,7 +19,9 @@ These are **guided labs** (step-by-step, mostly Cloud Console UI), not unguided 
 labs. So this folder tracks **evidence and progress** rather than solution artifacts:
 - Each lab's *Check my progress* checkpoints auto-grade as you go.
 - Evidence = **screenshots** of each finished lab (labs may not mint a badge) → saved under
-  each course's `screenshots/`.
+  each course's `screenshots/`. **Claude prompts for the screenshot at each lab completion.**
+- A running [`lab-log.md`](lab-log.md) captures the **exact CLI commands** run and **any
+  issues + fixes** (incl. a heads-up about an outdated Node.js command in one lab).
 - Final submission = badge URLs (if any) + your **public profile URL**, collected in
   [`submission.md`](submission.md).
 
@@ -28,6 +30,7 @@ labs. So this folder tracks **evidence and progress** rather than solution artif
 ```
 Assignment 9/
 ├── rubric.md                     # rubric + per-lab tracker + rules
+├── lab-log.md                    # exact CLI commands + issues/fixes (live)
 ├── submission.md                 # the 3 URLs to paste into Canvas
 ├── 99-logging-monitoring/        # Course 1 (3 labs)
 │   ├── README.md
