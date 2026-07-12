@@ -30,6 +30,7 @@ labs. So this folder tracks **evidence and progress** rather than solution artif
 ```
 Assignment 9/
 ├── rubric.md                     # rubric + per-lab tracker + rules
+├── primers.md                    # 2-min "what you're building" primer per lab
 ├── lab-log.md                    # exact CLI commands + issues/fixes (live)
 ├── submission.md                 # the 3 URLs to paste into Canvas
 ├── 99-logging-monitoring/        # Course 1 (3 labs)
