@@ -45,7 +45,7 @@ along the way. Updated live as we work through the labs.
 - **Issues & fixes:**
   - ⚠️✅ **Node.js runtime — the classmate-flagged issue, and it's the LAB TEXT that's outdated.** The lab tells you to set `runtime: nodejs20`, but the `HelloLoggingNodeJS` repo already ships **`runtime: nodejs22`** (maintainer bumped it because App Engine decommissions old runtimes). Following the lab's `nodejs20` can fail as it ages out. **Fix: leave/set `runtime: nodejs22`** (the current supported runtime); the Check-my-progress grader only cares that the app deploys + serves, not the version. Observed here: `cat app.yaml` → `nodejs22` out of the box.
   - ⚠️✅ **Region blocked by org policy:** `gcloud app create --region=us-central` → `FAILED_PRECONDITION: "us-central1" violates constraint "constraints/gcp.resourceLocations"`. The lab project's org policy disallows us-central1. **Fix: use `us-west1`** (worked here; `europe-west` is the other offered option). App Engine region is permanent per project, but that's fine for a temp lab.
-- 📸 **Screenshots:** ☐ "Hello World!" page + green *Deploy* check · ☐ SLO with error-budget chart + green *Create an SLO* check  → `99-logging-monitoring/screenshots/01-service-monitoring.png`
+- 📸 **Screenshots:** ✅ `01-service-monitoring-hello-world.png` (Task 1) · ☐ `01-service-monitoring-slo.png` (SLO + error budget) · ☐ `01-service-monitoring-alert.png` (SLI drop / alert firing)
 
 ### Lab 2 — Alerting in Google Cloud  ·  status: ☐
 - **Key steps / console actions:**
