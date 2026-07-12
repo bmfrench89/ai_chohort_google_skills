@@ -28,9 +28,9 @@ along the way. Updated live as we work through the labs.
   ```bash
   git clone https://github.com/haggman/HelloLoggingNodeJS.git
   cd HelloLoggingNodeJS
-  cat app.yaml                                        # shows the outdated runtime
-  sed -i 's/^runtime:.*/runtime: nodejs20/' app.yaml  # ⚠️ fix (see issue below)
-  cat app.yaml                                        # confirm runtime: nodejs20
+  cat app.yaml                                        # repo ships runtime: nodejs22
+  sed -i 's/^runtime:.*/runtime: nodejs22/' app.yaml  # keep nodejs22 (see issue below)
+  cat app.yaml                                        # confirm runtime: nodejs22
   gcloud app create --region=us-central
   gcloud app deploy                                   # type y
   echo https://$DEVSHELL_PROJECT_ID.appspot.com       # open → "Hello World!"
@@ -43,7 +43,7 @@ along the way. Updated live as we work through the labs.
   Console: Monitoring → SLOs → default App Engine service → **+Create SLO** (Availability · Request-based · Rolling 7 days · goal **99.5%**) → create SLO alert (lookback **10 min**, burn rate **1.5**, email notification channel). Trigger: edit `index.js` `/random-error` route (~line 126) `Math.random` **1000 → 20**, then `gcloud app deploy` again.
 
 - **Issues & fixes:**
-  - ⚠️✅ **Outdated Node.js runtime (the classmate-flagged issue):** cloned `HelloLoggingNodeJS` `app.yaml` ships a decommissioned App Engine runtime → `gcloud app deploy` would fail. **Fix: set `runtime: nodejs20` in app.yaml before deploying** (the lab instructs this too). Applied up front here.
+  - ⚠️✅ **Node.js runtime — the classmate-flagged issue, and it's the LAB TEXT that's outdated.** The lab tells you to set `runtime: nodejs20`, but the `HelloLoggingNodeJS` repo already ships **`runtime: nodejs22`** (maintainer bumped it because App Engine decommissions old runtimes). Following the lab's `nodejs20` can fail as it ages out. **Fix: leave/set `runtime: nodejs22`** (the current supported runtime); the Check-my-progress grader only cares that the app deploys + serves, not the version. Observed here: `cat app.yaml` → `nodejs22` out of the box.
 - 📸 **Screenshots:** ☐ "Hello World!" page + green *Deploy* check · ☐ SLO with error-budget chart + green *Create an SLO* check  → `99-logging-monitoring/screenshots/01-service-monitoring.png`
 
 ### Lab 2 — Alerting in Google Cloud  ·  status: ☐
