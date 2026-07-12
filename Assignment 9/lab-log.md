@@ -57,14 +57,30 @@ along the way. Updated live as we work through the labs.
 - 📸 **Screenshots (6, all saved):** hello-world · define-service · slo · alert-configured · error-budget-drop · **score-100** (key). See `99-logging-monitoring/screenshots/`.
 - **Note:** the burn-rate alert never *fired* (10-min lookback / 1.5 threshold not crossed in the short window), and the app couldn't be redeployed again (hit App Engine max-instances). **Neither matters** — the grader only checks the SLO + attached alert exist, and the lab scored **100/100**. Error budget did visibly drop (100% → ~79.8%) after the trigger.
 
-### Lab 2 — Alerting in Google Cloud  ·  status: ☐
-- **Key steps / console actions:**
-  -
-- **Commands run:**
+### Lab 2 — Alerting in Google Cloud  ·  status: 🔄 in progress
+> 90-min lab. **Python/Flask** app → App Engine → latency alert (Task 4, graded) → optional CLI error-% policy (Task 5, ungraded). Graded checkpoints: Deploy (Task 2) + Latency alert (Task 4).
+
+- **Setup + Task 1 (download/test):**
   ```bash
+  python3 -m pip install --upgrade pip
+  python3 -m venv myenv
+  source myenv/bin/activate
+  git clone --depth 1 https://github.com/GoogleCloudPlatform/training-data-analyst.git
+  cd ~/training-data-analyst/courses/design-process/deploying-apps-to-gcp
+  pip3 install -r requirements.txt
+  # python3 main.py  → Web Preview :8080 → "Hello GCP" → CTRL+C   (optional local test)
   ```
-- **Issues & fixes:** _none yet_
-- 📸 **Screenshot captured:** ☐  → `99-logging-monitoring/screenshots/02-alerting.png`
+- **Task 2 (deploy):**
+  ```bash
+  cd ~/training-data-analyst/courses/design-process/deploying-apps-to-gcp   # MUST deploy from here
+  echo "runtime: python312" > app.yaml
+  gcloud app create --region=us-west1
+  gcloud app deploy --version=one --quiet
+  ```
+- **Issues & fixes:**
+  - ⚠️✅ **Wrong account after browser refresh:** Cloud Shell came up authenticated as the **personal** account (`bmfrench89@gmail.com`) instead of the lab student account → `gcloud app create` → `PERMISSION_DENIED` + `Gaia id not found`. **Fix: use an Incognito window, open the lab's console link, sign in as the `student-…@qwiklabs.net` account**; verify with `gcloud auth list` (active = student) and the prompt shows `student_…@cloudshell`. (Rule 2 — always incognito + student account.)
+  - ⚠️✅ **`gcloud app deploy` crashed from the home dir:** run from `~`, gcloud tried to package the whole `training-data-analyst` repo and died on a broken file (`.../pubsub-exercises/exercise1/labs/actions.csv` FileNotFoundError). **Fix: `cd` into `deploying-apps-to-gcp` (the app folder) and create `app.yaml` there before deploying**; `rm -f ~/app.yaml` to clear the stray one. Deploy only ever from the small app folder.
+- 📸 **Screenshots:** ☐ `02-alerting-hello-gcp.png` (deploy) · ☐ `02-alerting-latency-alert.png` · ☐ `02-alerting-incident.png` · ☐ `02-alerting-score.png`
 
 ### Lab 3 — Monitoring & Dashboarding Multiple Projects  ·  status: ☐
 - **Key steps / console actions:**
