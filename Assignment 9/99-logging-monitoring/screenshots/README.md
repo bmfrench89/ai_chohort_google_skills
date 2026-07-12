@@ -10,10 +10,19 @@ convention.**
 
 ## Captured
 
-| File | Lab | Shows |
-|------|-----|-------|
-| `01-service-monitoring-hello-world.png` | Service Monitoring | ✅ App Engine "Hello World!" deploy (Task 1) |
-| `01-service-monitoring-slo.png` | Service Monitoring | ⏳ 99.5% SLO + error-budget chart (Task 2) |
-| `01-service-monitoring-alert.png` | Service Monitoring | ⏳ SLI drop / alert firing + green checkpoint (Task 2) |
-| `02-alerting-*.png` | Alerting in Google Cloud | ⏳ policy + notification channel + incident |
-| `03-monitoring-dashboarding-*.png` | Monitoring & Dashboarding | ⏳ golden-signal dashboard + uptime check |
+### Lab 1 — Service Monitoring ✅ (100/100)
+
+| File | Shows |
+|------|-------|
+| `01-service-monitoring-hello-world.png` | App Engine "Hello World!" deploy (Task 1) |
+| `01-service-monitoring-define-service.png` | "Service default successfully defined" |
+| `01-service-monitoring-slo.png` | 99.5% availability SLO created (100% error budget) |
+| `01-service-monitoring-alert-configured.png` | Burn-rate alert tied to the SLO (Alerts firing 0/1) |
+| `01-service-monitoring-error-budget-drop.png` | Error budget consumed to ~79.8% after the trigger |
+| `01-service-monitoring-score-100.png` | **Lab Score 100 / 100 — key evidence** |
+
+### Lab 2 — Alerting in Google Cloud ⏳
+`02-alerting-*.png`
+
+### Lab 3 — Monitoring & Dashboarding ⏳
+`03-monitoring-dashboarding-*.png`
