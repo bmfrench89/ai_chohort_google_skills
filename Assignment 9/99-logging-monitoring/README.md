@@ -14,7 +14,7 @@ the module.
 
 ### 2. Alerting in Google Cloud — 25 pts (L9.2 · L9.4)
 Build **alerting policies** and **notification channels**; alert on *impact*, not noise.
-- [ ] Completed · policy + channel configured · screenshot saved
+- [x] **Completed 2026-07-12** · 100/100 · policy "Hello too slow" (Above 8000ms) · screenshots in [`screenshots/`](screenshots/)
 
 ### 3. Monitoring Critical Systems — Monitoring and Dashboarding Multiple Projects — 20 pts (L9.1 · L9.4)
 Metrics data model, **golden-signal dashboards**, querying metrics, and **uptime checks**.

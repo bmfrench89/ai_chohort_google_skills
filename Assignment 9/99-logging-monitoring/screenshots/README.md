@@ -21,8 +21,17 @@ convention.**
 | `01-service-monitoring-error-budget-drop.png` | Error budget consumed to ~79.8% after the trigger |
 | `01-service-monitoring-score-100.png` | **Lab Score 100 / 100 — key evidence** |
 
-### Lab 2 — Alerting in Google Cloud ⏳
-`02-alerting-*.png`
+### Lab 2 — Alerting in Google Cloud ✅ (100/100)
+
+| File | Shows |
+|------|-------|
+| `02-alerting-hello-gcp-local.png` | Local Flask test via Cloud Shell Web Preview |
+| `02-alerting-hello-gcp.png` | Deployed "Hello GCP" page |
+| `02-alerting-appengine-dashboard.png` | App Engine dashboard — version `one`, us-west1 |
+| `02-alerting-latency-metric.png` | Metrics Explorer — GAE Response latency, 99th %ile |
+| `02-alerting-policy.png` | Alert policy "Hello too slow" (Above 8000ms) |
+| `02-alerting-appengine-traffic.png` | App Engine dashboard — traffic after v2 + load |
+| `02-alerting-score-100.png` | **Lab Score 100 / 100 — key evidence** |
 
 ### Lab 3 — Monitoring & Dashboarding ⏳
 `03-monitoring-dashboarding-*.png`
