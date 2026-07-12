@@ -30,7 +30,9 @@ https://www.cloudskillsboost.google/public_profiles/6a99762d-bfb2-4e65-b273-58cb
 ---
 
 ### Status
-- [ ] Profile set to **public**
-- [ ] Course 1 evidence ready (3 labs)
-- [ ] Course 2 evidence ready (1 lab)
+- [ ] Profile set to **public** ← last thing to do before submitting
+- [x] Course 1 evidence ready — Service Monitoring (100/100), Alerting (100/100), Monitoring & Dashboarding (lab 85/100, dashboard + uptime built). Shots in `99-logging-monitoring/screenshots/<per-lab>/`
+- [x] Course 2 evidence ready — Cloud Trace **30/30**. Shots in `864-observability/screenshots/01-view-application-latency-with-cloud-trace/`
 - [ ] All three items pasted into Canvas
+
+**Labs don't award badges** → submit the **screenshots** (per-lab `score-*` shots are the key ones) + your **public profile URL** above.

@@ -1,10 +1,9 @@
 # Course 2 — screenshot evidence
 
-Save a screenshot of the **finished Cloud Trace lab** here (checkpoints green). Suggested:
+Screenshots of the completed Cloud Trace lab — the graded evidence for Course 2. **One
+subfolder per lab** (same convention as Course 1).
 
-| Filename | Lab | Capture |
-|----------|-----|---------|
-| `01-cloud-trace.png` | Using Cloud Trace to View Application Latency | The trace waterfall showing the latency bottleneck + green checkpoints |
+## Labs
 
-> I can see pasted images but can't save them to disk — drop the file here yourself, then
-> it's tracked in the repo.
+### [`01-view-application-latency-with-cloud-trace/`](01-view-application-latency-with-cloud-trace/) — ✅ 30/30
+`gke-cluster` (cloud-trace-demo, us-east1-b, 3 nodes) · `trace-explorer` (spans: `/` + `HTTP GET`) · **`score-30`** (key)

@@ -6,15 +6,15 @@ One guided lab focused on distributed tracing.
 
 ## Lab
 
-### Using Cloud Trace to View Application Latency — 30 pts (L9.1 · L9.4)
-Trace a request as it moves **across services**, then **locate the latency bottleneck** with
-Cloud Trace. (Directly maps to the Cloud Trace lecture slide — hands-on.)
-- [ ] Completed · all checkpoints green · bottleneck identified · screenshot saved
+### View application latency with Cloud Trace — 30 pts (L9.1 · L9.4)
+Trace a request as it moves **across services** (GKE-hosted `cloud-trace-demo-a/b/c`), then
+**locate the latency bottleneck** with Cloud Trace.
+- [x] **Completed 2026-07-12 · 30/30** — GKE cluster + 3 OpenTelemetry services deployed, traces created, spans viewed in Trace Explorer. Shots in [`screenshots/01-view-application-latency-with-cloud-trace/`](screenshots/01-view-application-latency-with-cloud-trace/)
 
 ## Notes / gotchas
 
-<!-- fill in as you go -->
--
+- **Zone org policy:** `us-west1` was blocked → used **`us-east1-b`** (found allowed zones via `gcloud resource-manager org-policies describe gcp.resourceLocations --effective`).
+- **"Check my progress" has no CLI** — it's the Qwiklabs grader button; must be clicked in the lab UI. Generating traces (curl) and verifying them (Trace API) are both CLI-able.
 
 ## Evidence
 Screenshots → [`screenshots/`](screenshots/).

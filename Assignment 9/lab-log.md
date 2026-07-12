@@ -109,11 +109,28 @@ along the way. Updated live as we work through the labs.
 
 ## Course 2 — Observability (template 864)
 
-### Lab — Using Cloud Trace to View Application Latency  ·  status: ☐
-- **Key steps / console actions:**
-  -
-- **Commands run:**
+### Lab — View application latency with Cloud Trace  ·  status: ✅ done (2026-07-12, 30/30)
+> 1-hr lab, **GKE + Python** (pre-built OpenTelemetry images, no Node.js). 2 graded checkpoints: Task 1 (cluster + deploy), Task 2 (create a trace).
+
+- **Task 1 (deploy to GKE):**
   ```bash
+  git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+  gcloud services enable container.googleapis.com
+  export ZONE=us-east1-b                                     # us-west1 blocked by org policy (see issue)
+  gcloud container clusters create cloud-trace-demo --zone $ZONE
+  gcloud container clusters get-credentials cloud-trace-demo --zone $ZONE
+  kubectl get nodes
+  cd ~/python-docs-samples/trace/cloud-trace-demo-app-opentelemetry && ./setup.sh   # deploys demo-a/b/c
   ```
-- **Issues & fixes:** _none yet_
-- 📸 **Screenshot captured:** ☐  → `864-observability/screenshots/01-cloud-trace.png`
+- **Task 2 (create a trace):**
+  ```bash
+  for i in {1..10}; do curl -s http://<demo-a LB IP>/ >/dev/null; done   # A→B→C chain = one trace each
+  # verify traces via CLI (instead of Trace Explorer):
+  curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    "https://cloudtrace.googleapis.com/v1/projects/$(gcloud config get-value project)/traces?pageSize=20" | head
+  ```
+  Then Trace Explorer shows spans (Span name `/` + `HTTP GET`) → **Check my progress**.
+- **Issues & fixes:**
+  - ⚠️✅ **Zone org policy:** `us-west1-a` blocked (`gcp.resourceLocations`). Read allowed zones with `gcloud resource-manager org-policies describe gcp.resourceLocations --effective --project=<id>` → this project allowed **`us-east1`** zones. **Fix: `export ZONE=us-east1-b`.** (Each lab project's allowed region differs — the lab's Task 1 also names the intended zone.)
+  - ℹ️ **"Check my progress" has no CLI** — it's the Qwiklabs grader button, must be clicked in the lab UI. Everything else (curl to generate traces, Trace API to verify) is CLI-able.
+- 📸 **Screenshots (3):** `gke-cluster` · `trace-explorer` · **`score-30`**. See `864-observability/screenshots/01-view-application-latency-with-cloud-trace/`.

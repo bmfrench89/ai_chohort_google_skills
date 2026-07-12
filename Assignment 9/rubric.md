@@ -13,7 +13,7 @@
 | 1 | **Course 1 — Service Monitoring** | 25 | Lab completed; all *Check my progress* passed (SLIs, SLOs, error budgets) | ✅ |
 | 2 | **Course 1 — Alerting in Google Cloud** | 25 | Lab completed; alerting policies + notification channels configured | ✅ |
 | 3 | **Course 1 — Monitoring & Dashboarding** | 20 | Lab completed; golden-signal dashboard built + uptime checks configured | 🟡 |
-| 4 | **Course 2 — Cloud Trace** | 30 | Lab completed; latency bottleneck located via distributed trace | ☐ |
+| 4 | **Course 2 — Cloud Trace** | 30 | Lab completed; latency bottleneck located via distributed trace | ✅ |
 | | **Total** | **100** | Passing **70** · Strong **90+** | |
 
 ---
@@ -28,7 +28,7 @@
 ## Course 2 — Observability in Google Cloud
 [`course_templates/864`](https://www.cloudskillsboost.google/course_templates/864) · supports **L9.1, L9.4** — tracing depth. **One guided lab:**
 
-- [ ] **Using Cloud Trace to View Application Latency** — L9.1 · L9.4 — distributed tracing of a request across services; find the latency bottleneck — **30 pts**
+- [x] **View application latency with Cloud Trace** — L9.1 · L9.4 — distributed tracing of a request across services; find the latency bottleneck — **30 pts** ✅ *(2026-07-12, 30/30)*
 
 ---
 
@@ -38,8 +38,8 @@
 
 Drop screenshots into the `screenshots/` folder of each course. Submit these **3 items** in Canvas:
 
-- [ ] **Course 1** badge URL *or* screenshots (Service Monitoring, Alerting, Dashboarding)
-- [ ] **Course 2** badge URL *or* screenshot (Cloud Trace)
+- [x] **Course 1** evidence — screenshots for Service Monitoring, Alerting, Dashboarding (in each lab's `screenshots/` subfolder)
+- [x] **Course 2** evidence — screenshot for Cloud Trace (score 30/30)
 - [ ] **Public profile URL** (lists every completed lab w/ dates — the instructor verifies from this):
       `https://www.cloudskillsboost.google/public_profiles/6a99762d-bfb2-4e65-b273-58cbdefb9784`
 
@@ -57,5 +57,4 @@ Collected links live in [`submission.md`](submission.md).
 
 ## Progress log
 
-<!-- update as you go: date, lab, result, any gotchas -->
-- _not started_
+- **2026-07-12 — all 4 labs done (~100/100).** Service Monitoring 25 ✅ · Alerting 25 ✅ · Cloud Trace 30 ✅ · Monitoring & Dashboarding 20 🟡 (lab 85/100 — dashboard + uptime built; Task 5 checkpoint retryable). Screenshot evidence saved per lab. Remaining: set profile **public** + paste evidence/URLs into Canvas.
