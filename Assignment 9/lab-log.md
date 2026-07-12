@@ -21,15 +21,30 @@ along the way. Updated live as we work through the labs.
 
 ## Course 1 — Logging and Monitoring (template 99)
 
-### Lab 1 — Service Monitoring  ·  status: ☐
-- **Key steps / console actions:**
-  -
-- **Commands run:**
+### Lab 1 — Service Monitoring  ·  status: 🔄 in progress
+> Reached via the 864 course URL, but it's the **Service Monitoring** lab = Course 1 Lab 1 (25 pts). 30-min timer. Deploy a Node.js app to App Engine → create a 99.5% availability SLO → tie a burn-rate alert → trigger it.
+
+- **Task 1 — deploy test app (App Engine · Node.js):**
   ```bash
-  # (fill in as we go)
+  git clone https://github.com/haggman/HelloLoggingNodeJS.git
+  cd HelloLoggingNodeJS
+  cat app.yaml                                        # shows the outdated runtime
+  sed -i 's/^runtime:.*/runtime: nodejs20/' app.yaml  # ⚠️ fix (see issue below)
+  cat app.yaml                                        # confirm runtime: nodejs20
+  gcloud app create --region=us-central
+  gcloud app deploy                                   # type y
+  echo https://$DEVSHELL_PROJECT_ID.appspot.com       # open → "Hello World!"
   ```
-- **Issues & fixes:** _none yet_
-- 📸 **Screenshot captured:** ☐  → `99-logging-monitoring/screenshots/01-service-monitoring.png`
+- **Task 2 — SLO + alert (Cloud Console + Cloud Shell):**
+  ```bash
+  # load generator (run in a 2nd Cloud Shell tab, leave running):
+  while true; do curl -s https://$DEVSHELL_PROJECT_ID.appspot.com/random-error -w '\n'; sleep .1s; done
+  ```
+  Console: Monitoring → SLOs → default App Engine service → **+Create SLO** (Availability · Request-based · Rolling 7 days · goal **99.5%**) → create SLO alert (lookback **10 min**, burn rate **1.5**, email notification channel). Trigger: edit `index.js` `/random-error` route (~line 126) `Math.random` **1000 → 20**, then `gcloud app deploy` again.
+
+- **Issues & fixes:**
+  - ⚠️✅ **Outdated Node.js runtime (the classmate-flagged issue):** cloned `HelloLoggingNodeJS` `app.yaml` ships a decommissioned App Engine runtime → `gcloud app deploy` would fail. **Fix: set `runtime: nodejs20` in app.yaml before deploying** (the lab instructs this too). Applied up front here.
+- 📸 **Screenshots:** ☐ "Hello World!" page + green *Deploy* check · ☐ SLO with error-budget chart + green *Create an SLO* check  → `99-logging-monitoring/screenshots/01-service-monitoring.png`
 
 ### Lab 2 — Alerting in Google Cloud  ·  status: ☐
 - **Key steps / console actions:**
