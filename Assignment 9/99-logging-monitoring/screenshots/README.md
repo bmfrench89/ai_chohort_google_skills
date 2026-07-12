@@ -1,7 +1,7 @@
 # Course 1 — screenshot evidence
 
 Screenshots of completed labs — the graded evidence for Module 9. **One subfolder per lab**,
-matching the Course 1 lab map.
+named to match the Course 1 lab map.
 
 ## Convention
 
@@ -13,8 +13,8 @@ shot**. Save a shot with any name and tell me; I drop it in the right lab folder
 ### [`01-service-monitoring/`](01-service-monitoring/) — ✅ 100/100
 `hello-world` · `define-service` · `slo` · `alert-configured` · `error-budget-drop` · **`score-100`** (key)
 
-### [`02-alerting/`](02-alerting/) — ✅ 100/100
+### [`02-alerting-in-google-cloud/`](02-alerting-in-google-cloud/) — ✅ 100/100
 `hello-gcp-local` · `hello-gcp` · `appengine-dashboard` · `latency-metric` · `policy` · `appengine-traffic` · **`score-100`** (key)
 
-### [`03-monitoring-dashboarding/`](03-monitoring-dashboarding/) — ⏳ not started
-Expected: `metrics-scope` · `dashboard` · `uptime-check` · `score`
+### [`03-monitoring-and-dashboarding-multiple-projects/`](03-monitoring-and-dashboarding-multiple-projects/) — ⏳ in progress
+Expected: `worker-1-nginx` · `worker-2-nginx` · `metrics-scope` · `frontend-servers-group` · `uptime-check` · `custom-dashboard` · `score`
