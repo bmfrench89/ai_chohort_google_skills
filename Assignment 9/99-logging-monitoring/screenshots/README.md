@@ -17,4 +17,4 @@ shot**. Save a shot with any name and tell me; I drop it in the right lab folder
 `hello-gcp-local` · `hello-gcp` · `appengine-dashboard` · `latency-metric` · `policy` · `appengine-traffic` · **`score-100`** (key)
 
 ### [`03-monitoring-and-dashboarding-multiple-projects/`](03-monitoring-and-dashboarding-multiple-projects/) — ⏳ in progress
-Expected: `worker-1-nginx` · `worker-2-nginx` · `metrics-scope` · `frontend-servers-group` · `uptime-check` · `custom-dashboard` · `score`
+Saved: `worker-1-nginx` · `worker-2-nginx`. Next: `frontend-servers-group` · `uptime-check` · `custom-dashboard` · `score`
